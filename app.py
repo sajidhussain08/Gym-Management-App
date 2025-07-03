@@ -16,14 +16,14 @@ app.permanent_session_lifetime = timedelta(minutes=30)
 
 
 class Client(db.Model):
-    id = db.Column(db.Integer, primary_key=True)  # Auto-increment ID
-    custom_id = db.Column(db.String(10), unique=True)  # GS001, etc.
+    id = db.Column(db.Integer, primary_key=True)  
+    custom_id = db.Column(db.String(10), unique=True) 
     name = db.Column(db.String(100), nullable=False)
     phone = db.Column(db.String(20), nullable=False)
     gender = db.Column(db.String(10), nullable=False)
     plan_start = db.Column(db.Date, nullable=False)
     plan_end = db.Column(db.Date, nullable=False)
-    status = db.Column(db.String(20), nullable=False)  # Active / Expired
+    status = db.Column(db.String(20), nullable=False) 
     amount_paid = db.Column(db.Integer, nullable=False)
 
 class AdminUser(db.Model):
@@ -238,7 +238,7 @@ def expiring_clients():
 
 @app.route('/logout')
 def logout():
-    session.pop('admin_user', None)  # Remove admin_user from session
+    session.pop('admin_user', None) 
     return redirect('/login')
 
 
