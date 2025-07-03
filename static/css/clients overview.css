@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+  overflow-x: hidden;
+}
+
+header {
+    background-color: black;
+    height: 9vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    height: 9vh;
+    display: flex;
+    align-items: center;
+    padding: 0 9vw;
+}
+
+nav ul li {
+    list-style: none;
+    padding: 0 1.5vw;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-family: "Barlow Condensed", serif;
+    font-weight: 500;
+    font-size: large;
+}
+
+nav ul li a:hover {
+    color: #f39016;
+}
+
+.logo img {
+    width: 12vw;
+    padding: 0.5vh 2vw;
+}
+
+main {
+    height: calc(100vh - 9vh);
+    background-image: url("/static/images/Dash_BG.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    color: #f39016;
+    position: relative;
+    left: 7.5vw;
+    top: 3vh;
+}
+
+table {
+    width: 95vw;
+    color: white;
+    font-family: "Barlow Condensed", serif;
+    border: 0.5px solid #f39016;
+    position: relative;
+    left: 2vw;
+    top: 5vh;
+    border-collapse: collapse;
+
+}
+
+thead tr th {
+    padding: 2vh 1.5vw;
+    border-bottom: 3px solid #f39016;
+    background-color: #f39016;
+    color: #000;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center; 
+}
+
+tbody tr td {
+    padding: 1.5vh 2vw;
+    text-align: center; 
+    font-weight: 400;
+    font-size: 18px;
+}
+
+
+tbody tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.342);
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f3901648;
+}
+
+footer {
+    height: 8vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Barlow Condensed", serif;
+    font-weight: 500;
+}

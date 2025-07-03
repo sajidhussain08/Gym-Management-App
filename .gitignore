@@ -1,0 +1,4 @@
+.env
+gym.db
+__pycache__/
+*.pyc
