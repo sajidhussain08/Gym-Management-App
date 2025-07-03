@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renewal</title>
+    <link rel="stylesheet" href="/static/css/renew.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="/static/images/Logo.png" alt="">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/login">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form method = 'POST' action = '/renew'>
+        <div class="form-cont">
+            {% if error %}
+                <div style="color: red; font-size: 20px; font-weight: bold; margin-bottom: 10px;">
+                    {{ error }}
+                </div>
+            {% endif %}
+            <div class="forms">
+                <div class="form">
+                    <label for="uni-id">ID</label>
+                    <input type="text" id="uni-id" name="custom_id" required>
+                </div>
+                <p>Select Plan</p>
+                <div class="form-plan">
+                    <input type="radio" id="plan1" name = "plan" value="1month" required>
+                    <label for="plan1">1 month</label>
+                    
+                    <input type="radio" id="plan3" name = "plan"  value="3months" >
+                    <label for="plan3">3 months</label>
+                    
+                    <input type="radio" id="plan6" name = "plan"  value="6months">
+                    <label for="plan6">6 months</label>
+                    
+                    <input type="radio" id="plan1y" name = "plan" value="1year" >
+                    <label for="plan1y">1 year</label>
+                    
+                </div>
+                <div class="form">
+                    <label for="amount">Amount Paid</label>
+                    <input type="number" id="amount" name = "amount_paid" placeholder="Enter Amount" required>
+                </div>
+                <div class="form">
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+
+        </div>
+
+        </div>
+    </form>
+    </main>
+    <footer>
+        <p>Copy Rights &copy; GS Fitness Center | All Rights Reserved</p>
+    </footer>
+</body>
+
+</html>

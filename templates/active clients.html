@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active clients</title>
+    <link rel="stylesheet" href="/static/css/active clients.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="/static/images/Logo.png" alt="">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/clients-overview">Clients Overview</a></li>
+                <li><a href="/inactive-clients">Inactive Clients</a></li>
+                <li><a href="/expiring-clients">Expiring Clients</a></li>
+                <li><a href="/login">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Active Clients</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Serial No.</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Gender</th>
+                    <th>Plan Start Date</th>
+                    <th>Plan End Date</th>
+                    <th>Status</th>
+                    <th>Amount Paid</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for client in clients %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ client.custom_id }}</td>
+                    <td>{{ client.name }}</td>
+                    <td>{{ client.phone }}</td>
+                    <td>{{ client.gender }}</td>
+                    <td>{{ client.plan_start.strftime('%d-%m-%Y') }}</td>
+                    <td>{{ client.plan_end.strftime('%d-%m-%Y') }}</td>
+                    <td>{{ client.status }}</td>
+                    <td>₹{{ client.amount_paid }}</td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>Copy Rights &copy; GS Fitness Center | All Rights Reserved</p>
+    </footer>
+</body>
+
+</html>
