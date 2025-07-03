@@ -1,4 +1,4 @@
 .env
-gym.db
+instance/gym.db
 __pycache__/
 *.pyc
