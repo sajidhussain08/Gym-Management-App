@@ -48,7 +48,7 @@ nav ul {
 
 main {
     height: calc(100vh - 9vh);
-    background-image: url("../Images/Login_BG.jpg");
+    background-image: url("../images/Login_BG.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
