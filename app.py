@@ -7,9 +7,8 @@ from dotenv import load_dotenv
 import os
 load_dotenv()
 
-
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///gym.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 db = SQLAlchemy(app)
 app.secret_key = os.getenv("SECRET_KEY")
 app.permanent_session_lifetime = timedelta(minutes=30)
@@ -236,6 +235,27 @@ def expiring_clients():
     clients = Client.query.filter(Client.plan_end >= today, Client.plan_end <= in_two_days).all()
     return render_template("expiring clients.html", clients = clients)
 
+@app.route("/change-password", methods=["GET", "POST"])
+def change_password():
+    if "admin_user" not in session:
+        return redirect("/login")
+
+    user = AdminUser.query.filter_by(username=session["admin_user"]).first()
+
+    if request.method == "POST":
+        current_password = request.form["current_password"]
+        new_password = request.form["new_password"]
+
+        if user and user.check_password(current_password):
+            user.set_password(new_password)
+            db.session.commit()
+            return render_template("change_password.html", success="Password changed successfully.")
+        else:
+            return render_template("change_password.html", error="Current password is incorrect.")
+
+    return render_template("change_password.html")
+
+
 @app.route('/logout')
 def logout():
     session.pop('admin_user', None) 
@@ -243,4 +263,4 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run(debug = True)
+    app.run(debug = False)
