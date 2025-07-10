@@ -2,3 +2,4 @@
 instance/gym.db
 __pycache__/
 *.pyc
+create_admin.py
