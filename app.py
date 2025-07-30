@@ -8,7 +8,7 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///gym.db'
 db = SQLAlchemy(app)
 app.secret_key = os.getenv("SECRET_KEY")
 app.permanent_session_lifetime = timedelta(minutes=30)
